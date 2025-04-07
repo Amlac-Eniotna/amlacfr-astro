@@ -1,0 +1,28 @@
+---
+import ExternalLink from "@lucide/astro/icons/external-link";
+import projects from "../assets/Projects.json";
+---
+
+<ul>
+  {
+    projects.reverse().map((project) => {
+      return (
+        <li>
+          <a
+            href={project.url}
+            target="_blank"
+            class="flex items-center gap-2 text-gray-800 hover:text-gray-500"
+          >
+            {project.title}
+            <ExternalLink size={16} />
+          </a>
+          <ul class="list-inside list-disc text-xs">
+            {project.technologie.map((technologie) => (
+              <li>{technologie}</li>
+            ))}
+          </ul>
+        </li>
+      );
+    })
+  }
+</ul>
