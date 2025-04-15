@@ -15,6 +15,11 @@
     "technologie": ["NextJS", "nodemailer", "Typescript"]
   },
   {
+    "title": "Maquette IzyCar",
+    "url": "https://www.figma.com/design/ikUBrKzSRAl4dn8Ai2hVIF/Izycar?node-id=0-1&t=bI64cyQVMFNY18Df-1",
+    "technologie": ["Affinity Design"]
+  },
+  {
     "title": "GBE Rénov'",
     "url": "https://gberenov.fr/",
     "technologie": ["NextJS", "nodemailer", "Typescript"]

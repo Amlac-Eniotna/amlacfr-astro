@@ -19,10 +19,8 @@ import Background from "../components/Background.astro";
   </head>
   <body>
     <Background />
-    <div class="z-10 min-h-lvh p-4">
-      <main
-        class="m-auto w-fit sm:absolute sm:top-1/6 sm:left-2/12 sm:m-0 lg:top-1/5"
-      >
+    <div class="z-10 flex min-h-lvh items-center p-4">
+      <main class="relative w-fit items-center sm:left-2/12">
         <slot />
       </main>
     </div>
