@@ -20,6 +20,11 @@
     "technologie": ["Affinity Design"]
   },
   {
+    "title": "Femmes en cévennes",
+    "url": "https://femmes-en-cevennes.fr/",
+    "technologie": ["NextJS", "next-auth", "neobrutalism.dev"]
+  },
+  {
     "title": "GBE Rénov'",
     "url": "https://gberenov.fr/",
     "technologie": ["NextJS", "nodemailer", "Typescript"]
