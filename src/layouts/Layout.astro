@@ -1,5 +1,5 @@
 ---
-import ShaderBackground from "../components/ShaderBackground.astro";
+import SimplePerlinBackground from "../components/SimplePerlinBackground.astro";
 ---
 
 <!doctype html>
@@ -18,25 +18,10 @@ import ShaderBackground from "../components/ShaderBackground.astro";
     />
   </head>
   <body>
-    <!-- Fond avec shader -->
-    <ShaderBackground resolution={50} speed={1.0} iterations={3} />
-    
-    <!-- <SimplePerlinBackground
-      scale={0.003}
-      speed={0.005}
-      octaves={3}
-      persistence={0.1}
-      lacunarity={10.0}
-      hue={0}
-      saturation={0}
-      lightness={0}
-      contrast={100.0}
-    /> -->
+    <SimplePerlinBackground />
 
     <div class="relative z-10 flex min-h-lvh items-center p-4">
-      <main
-        class="relative w-fit items-center rounded-lg bg-white/90 p-6 sm:left-2/12"
-      >
+      <main class="relative w-fit items-center rounded-lg p-6 sm:left-2/12">
         <slot />
       </main>
     </div>
