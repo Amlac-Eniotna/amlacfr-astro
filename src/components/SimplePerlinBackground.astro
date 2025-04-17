@@ -1,14 +1,14 @@
 ---
 const {
-  scale = 0.01,
+  scale = 0.0025,
   speed = 0.005,
-  octaves = 1,
-  persistence = 0.6,
-  lacunarity = 2.0,
-  hue = 220,
-  saturation = 70,
-  lightness = 50,
-  contrast = 2.0,
+  octaves = 4,
+  persistence = 1,
+  lacunarity = 1.5,
+  hue = 0,
+  saturation = 0,
+  lightness = 150,
+  contrast = 0.75,
 } = Astro.props;
 ---
 
@@ -187,8 +187,26 @@ const {
 
           // Noir et blanc avec des zones blanches éparses et des grandes zones noires
           // Transformer la valeur pour avoir plus de noir
-          const threshold = 0.7; // Seuil élevé
-          const bwValue = value > threshold ? 0 : 1; // Inversé: blanc si en dessous du seuil, noir si au-dessus
+
+          // Ajouter de l'aléatoire au seuil pour créer des taches irrégulières
+          const baseThreshold = 0.7; // Seuil de base
+          const randomFactor = Math.random() * 0.08; // Facteur aléatoire entre 0 et 0.08
+          const threshold = baseThreshold + randomFactor;
+
+          // Ajouter une transition douce entre le noir et le blanc
+          const transitionWidth = 1.2; // Largeur de la zone de transition
+          let bwValue;
+
+          if (value > threshold + transitionWidth / 2) {
+            bwValue = 0; // Noir
+          } else if (value < threshold - transitionWidth / 2) {
+            bwValue = 1; // Blanc
+          } else {
+            // Zone de dégradé
+            const t =
+              (value - (threshold - transitionWidth / 2)) / transitionWidth;
+            bwValue = 1 - t; // Transition graduelle entre blanc (1) et noir (0)
+          }
 
           // Convertir en RGB (même valeur pour r, g, b = niveaux de gris)
           const intensity = bwValue * 255;
