@@ -160,35 +160,52 @@ const {
     // Animation
     let time = 0;
 
-    // Variables pour stocker la zone de texte
-    let mainRect = null;
+    // Variables pour stocker les rectangles des éléments de texte
+    let textRects = [];
     let buffer = 10;
-
-    // Fonction pour mettre à jour la zone de texte (appelée une seule fois après le chargement)
-    function updateTextArea() {
-      const mainElement = document.querySelector("main");
-      if (mainElement) {
-        mainRect = mainElement.getBoundingClientRect();
-      }
+    
+    // Fonction pour mettre à jour les zones de texte
+    function updateTextAreas() {
+      textRects = [];
+      
+      // Sélectionner spécifiquement les éléments de texte
+      const elements = document.querySelectorAll('h1, p, a, li');
+      
+      // Obtenir les rectangles pour chaque élément
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // Ne pas ajouter les rectangles vides ou trop petits
+        if (rect.width > 5 && rect.height > 5) {
+          textRects.push(rect);
+        }
+      });
+      
+      console.log(`Updated ${textRects.length} text areas`);
     }
-
-    // Appeler updateTextArea une seule fois au chargement
-    updateTextArea();
-
+    
+    // Attendre que le DOM soit complètement chargé
+    setTimeout(updateTextAreas, 500);
+    
     // Mettre à jour en cas de redimensionnement
-    window.addEventListener("resize", updateTextArea);
-
-    // Fonction pour déterminer si un point est à l'intérieur de la zone de texte
+    window.addEventListener("resize", updateTextAreas);
+    
+    // Fonction pour déterminer si un point est à l'intérieur d'une zone de texte
     function isInTextArea(x, y) {
-      if (!avoidTextAreas || !mainRect) return false;
-
-      // Vérifier si les coordonnées sont à l'intérieur de la zone principale avec buffer
-      return (
-        x >= mainRect.left - buffer &&
-        x <= mainRect.right + buffer &&
-        y >= mainRect.top - buffer &&
-        y <= mainRect.bottom + buffer
-      );
+      if (!avoidTextAreas || textRects.length === 0) return false;
+      
+      // Vérifier si les coordonnées sont à l'intérieur d'un des rectangles de texte
+      for (const rect of textRects) {
+        if (
+          x >= rect.left - buffer &&
+          x <= rect.right + buffer &&
+          y >= rect.top - buffer &&
+          y <= rect.bottom + buffer
+        ) {
+          return true;
+        }
+      }
+      
+      return false;
     }
 
     function draw() {
@@ -197,7 +214,7 @@ const {
       const data = imageData.data;
 
       // Utiliser des pixels plus grands pour les performances
-      const pixelSize = 8; // Augmenté pour de meilleures performances
+      const pixelSize = 10; // Augmenté davantage pour de meilleures performances
 
       // Pour chaque pixel
       for (let x = 0; x < canvas.width; x += pixelSize) {
