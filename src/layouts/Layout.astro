@@ -1,5 +1,5 @@
 ---
-
+import PerlinBackground from "../components/PerlinBackground.astro";
 ---
 
 <!doctype html>
@@ -18,6 +18,17 @@
     />
   </head>
   <body>
+    <PerlinBackground
+      scale={0.01}
+      speed={0.0005}
+      octaves={3}
+      persistence={0.5}
+      lacunarity={2.0}
+      hue={220}
+      saturation={50}
+      lightness={25}
+      contrast={1.3}
+    />
     <div class="z-10 flex min-h-lvh items-center p-4">
       <main class="relative w-fit items-center sm:left-2/12">
         <slot />
