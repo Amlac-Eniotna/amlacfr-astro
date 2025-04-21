@@ -4,31 +4,38 @@ import projects from "../assets/Projects.json";
 ---
 
 <section
-  class="relative flex h-screen w-full snap-start snap-always items-center justify-center"
+  class="relative flex min-h-screen w-full snap-start snap-always items-center justify-center px-4 sm:py-0"
 >
-  <ul class="m-auto grid max-w-3xl grid-cols-3 gap-5">
-    {
-      projects.reverse().map((project) => {
-        return (
-          <li class="mb-2.5 w-fit">
-            <a
-              href={project.url}
-              target="_blank"
-              class="flex w-fit items-center gap-2 font-bold text-gray-800 hover:text-gray-500"
-            >
-              {project.title}
-              <ExternalLink size={16} />
-            </a>
-            <p class="mb-1 text-xs text-gray-800">{project.date}</p>
-            <ul class="list-inside list-disc text-xs">
-              {project.technologie.map((technologie) => (
-                <li>{technologie}</li>
-              ))}
-            </ul>
-          </li>
-        );
-      })
-    }
-  </ul>
-  <div class="absolute -bottom-16 m-auto h-32 w-[1px] bg-black"></div>
+  <div class="mt-24">
+    <ul
+      class="m-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3"
+    >
+      {
+        projects.reverse().map((project) => {
+          return (
+            <li class="mb-2.5 w-fit">
+              <a
+                href={project.url}
+                target="_blank"
+                class="flex w-fit items-center gap-2 font-bold text-gray-800 hover:text-gray-500"
+              >
+                {project.title}
+                <ExternalLink size={16} />
+              </a>
+              <p class="mb-1 text-xs text-gray-800">{project.date}</p>
+              <ul class="list-inside list-disc text-xs">
+                {project.technologie.map((technologie) => (
+                  <li>{technologie}</li>
+                ))}
+              </ul>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+  <div
+    class="absolute -bottom-8 m-auto h-16 w-[1px] bg-black sm:-bottom-16 sm:h-32"
+  >
+  </div>
 </section>

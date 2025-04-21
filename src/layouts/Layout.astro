@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Antoine Calma - Portfolio</title>
@@ -28,5 +28,11 @@ import Header from "../components/Header.astro";
     padding: 0;
     background: none; /* Suppression de tout fond */
     overflow-y: auto;
+  }
+
+  @media (max-width: 640px) {
+    main {
+      scroll-snap-type: y proximity; /* Rend le snap moins strict sur mobile pour une meilleure UX */
+    }
   }
 </style>

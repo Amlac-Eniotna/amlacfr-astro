@@ -9,6 +9,7 @@
       format("woff2"),
     url("/public/fonts/EditorialSans/PPEditorialSans-Ultralight.woff")
       format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -20,6 +21,7 @@
       format("woff2"),
     url("/public/fonts/EditorialSans/PPEditorialSans-Medium.woff")
       format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +33,7 @@
       format("woff2"),
     url("/public/fonts/EditorialOld/PPEditorialOld-BoldItalic.woff")
       format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -41,6 +44,7 @@
     url("/public/fonts/EditorialOld/PPEditorialOld-Italic.woff2")
       format("woff2"),
     url("/public/fonts/EditorialOld/PPEditorialOld-Italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -50,6 +54,7 @@
   src:
     url("/public/fonts/Casa/PPCasa-Regular.woff2") format("woff2"),
     url("/public/fonts/Casa/PPCasa-Regular.woff") format("woff");
+  font-display: swap;
 }
 
 body {
@@ -73,4 +78,12 @@ body {
   font-feature-settings: "dlig" 1;
   -moz-font-feature-settings: "dlig" 1;
   -webkit-font-feature-settings: "dlig" 1;
+}
+
+/* Styles responsives globaux */
+@media (max-width: 640px) {
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
