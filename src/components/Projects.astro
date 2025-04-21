@@ -4,9 +4,9 @@ import projects from "../assets/Projects.json";
 ---
 
 <section
-  class="relative flex h-screen snap-start snap-always items-center justify-center"
+  class="relative flex h-screen w-full snap-start snap-always items-center justify-center"
 >
-  <ul class="m-auto grid max-w-3xl grid-cols-3">
+  <ul class="m-auto grid max-w-3xl grid-cols-3 gap-5">
     {
       projects.reverse().map((project) => {
         return (
@@ -19,6 +19,7 @@ import projects from "../assets/Projects.json";
               {project.title}
               <ExternalLink size={16} />
             </a>
+            <p class="mb-1 text-xs text-gray-800">{project.date}</p>
             <ul class="list-inside list-disc text-xs">
               {project.technologie.map((technologie) => (
                 <li>{technologie}</li>
