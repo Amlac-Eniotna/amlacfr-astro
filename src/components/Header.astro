@@ -1,0 +1,25 @@
+---
+import { BookOpenText, NotebookTabs } from "@lucide/astro";
+---
+
+<header
+  class="font-editorial-old ligatures fixed z-10 w-full py-4 text-center italic backdrop-blur-sm"
+>
+  <div class="relative m-auto max-w-3xl">
+    <h1 class="text-3xl whitespace-nowrap">Antoine Calma</h1>
+    <h1 class="text-xl whitespace-nowrap">Développeur NextJS / UX Designer</h1>
+    <div
+      class="absolute top-0 flex size-full items-end-safe justify-end-safe pr-5"
+    >
+      <a class="flex cursor-pointer flex-col items-center justify-center p-2"
+        ><BookOpenText /><span class="text-center text-[10px]">Blog</span></a
+      ><a
+        href="#contact"
+        class="flex cursor-pointer flex-col items-center justify-center p-2"
+        ><NotebookTabs /><span class="text-center text-[10px]">Contact</span></a
+      >
+    </div>
+  </div>
+</header>
+
+<style></style>

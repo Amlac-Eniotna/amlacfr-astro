@@ -3,26 +3,31 @@ import ExternalLink from "@lucide/astro/icons/external-link";
 import projects from "../assets/Projects.json";
 ---
 
-<ul>
-  {
-    projects.reverse().map((project) => {
-      return (
-        <li class="mb-2.5 w-fit">
-          <a
-            href={project.url}
-            target="_blank"
-            class="flex w-fit items-center gap-2 text-gray-800 hover:text-gray-500"
-          >
-            {project.title}
-            <ExternalLink size={16} />
-          </a>
-          <ul class="list-inside list-disc text-xs">
-            {project.technologie.map((technologie) => (
-              <li>{technologie}</li>
-            ))}
-          </ul>
-        </li>
-      );
-    })
-  }
-</ul>
+<section
+  class="relative flex h-screen snap-start snap-always items-center justify-center"
+>
+  <ul class="m-auto grid max-w-3xl grid-cols-3">
+    {
+      projects.reverse().map((project) => {
+        return (
+          <li class="mb-2.5 w-fit">
+            <a
+              href={project.url}
+              target="_blank"
+              class="flex w-fit items-center gap-2 font-bold text-gray-800 hover:text-gray-500"
+            >
+              {project.title}
+              <ExternalLink size={16} />
+            </a>
+            <ul class="list-inside list-disc text-xs">
+              {project.technologie.map((technologie) => (
+                <li>{technologie}</li>
+              ))}
+            </ul>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <div class="absolute -bottom-16 m-auto h-32 w-[1px] bg-black"></div>
+</section>
