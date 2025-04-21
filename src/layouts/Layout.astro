@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="fr" class="snap-y snap-mandatory scroll-smooth">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -13,7 +13,7 @@ import Header from "../components/Header.astro";
   </head>
   <body>
     <Header />
-    <main class="">
+    <main class="h-screen snap-y snap-mandatory overflow-y-auto">
       <slot />
     </main>
   </body>
