@@ -26,7 +26,7 @@
   {
     "title": "Femmes en cévennes",
     "url": "https://femmes-en-cevennes.fr/",
-    "technologie": ["NextJS", "next-auth", "neobrutalism.dev"],
+    "technologie": ["NextJS", "next-auth"],
     "date": "10/2024"
   },
   {
