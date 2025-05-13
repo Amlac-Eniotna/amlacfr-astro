@@ -1,5 +1,4 @@
 ---
-import ExternalLink from "@lucide/astro/icons/external-link";
 import projects from "../assets/Projects.json";
 ---
 
@@ -8,26 +7,28 @@ import projects from "../assets/Projects.json";
 >
   <div class="mt-24">
     <ul
-      class="m-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3"
+      class="m-auto grid max-w-3xl grid-cols-1 gap-2.5 sm:grid-cols-2 md:grid-cols-3"
     >
       {
         projects.reverse().map((project) => {
           return (
-            <li class="mb-2.5 w-fit">
+            <li class="card relative flex size-full overflow-hidden rounded-xl border">
               <a
                 href={project.url}
                 target="_blank"
-                class="flex w-fit items-center gap-2 font-bold text-gray-800 underline hover:text-gray-500"
+                class="relative size-full px-5 py-2.5"
               >
-                {project.title}
-                <ExternalLink size={16} />
+                <div class="relative -z-2">
+                  <h3 class="font-bold">{project.title}</h3>
+                  <p class="mb-1 text-xs">{project.date}</p>
+                  <ul class="list-inside list-disc text-xs">
+                    {project.technologie.map((technologie) => (
+                      <li>{technologie}</li>
+                    ))}
+                  </ul>
+                </div>
               </a>
-              <p class="mb-1 text-xs text-gray-800">{project.date}</p>
-              <ul class="list-inside list-disc text-xs">
-                {project.technologie.map((technologie) => (
-                  <li>{technologie}</li>
-                ))}
-              </ul>
+              <div class="card-invert absolute top-0 left-0 -z-1 size-full backdrop-invert" />
             </li>
           );
         })
@@ -39,3 +40,13 @@ import projects from "../assets/Projects.json";
   >
   </div>
 </section>
+
+<style>
+  .card-invert {
+    max-width: 0;
+    transition: max-width 500ms;
+  }
+  .card:hover .card-invert {
+    max-width: 100%;
+  }
+</style>
