@@ -40,5 +40,11 @@
     "url": "https://maisonsinistree.fr/",
     "technologie": ["NextJS", "nodemailer", "Typescript"],
     "date": "12/2024"
+  },
+  {
+    "title": "Archikeo",
+    "url": "https://archikeo.fr/",
+    "technologie": ["NextJS", "nodemailer", "ClaudeAI"],
+    "date": "05/2025"
   }
 ]
