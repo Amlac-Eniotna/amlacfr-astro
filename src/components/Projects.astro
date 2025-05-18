@@ -5,14 +5,15 @@ import projects from "../assets/Projects.json";
 <section
   class="relative flex min-h-dvh w-full snap-start snap-always items-center justify-center px-4 sm:py-0"
 >
-  <div class="mt-24">
+  <div class="mt-24 mb-24 sm:mb-0">
     <ul
       class="m-auto grid max-w-3xl grid-cols-1 gap-2.5 sm:grid-cols-2 md:grid-cols-3"
     >
       {
         projects.reverse().map((project) => {
           return (
-            <li class="card relative flex size-full overflow-hidden rounded-xl border">
+            <li class="card blur-scroll noise-effect relative flex size-full overflow-hidden rounded-xl border">
+              <div class="absolute -z-10 size-full bg-white" />
               <a
                 href={project.url}
                 target="_blank"
@@ -48,5 +49,20 @@ import projects from "../assets/Projects.json";
   }
   .card:hover .card-invert {
     max-width: 100%;
+  }
+
+  .blur-scroll {
+    animation: blur linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% contain 20%;
+  }
+
+  @keyframes blur {
+    from {
+      filter: blur(12px);
+    }
+    to {
+      scale: blur(0px);
+    }
   }
 </style>
